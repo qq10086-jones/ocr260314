@@ -1,0 +1,29 @@
+runtime:
+  output_dir: runs
+  temp_dir: tmp
+  debug: true
+  process_timeout_seconds: 300
+
+ocr:
+  provider: rapidocr
+
+translator:
+  provider: google
+  src_lang: auto
+  tgt_lang: ja
+
+inpaint:
+  provider: opencv
+  expand_pixels: 8
+
+comfyui:
+  server: "127.0.0.1:8188"
+  root_dir: workflows/comfyui
+  workflow_file: workflows/comfyui/workflow.json
+  request_timeout_seconds: 120
+  max_consecutive_failures: 3
+  degradation_cooldown_seconds: 300
+
+render:
+  font_path: /System/Library/Fonts/PingFang.ttc
+  stroke_enabled: true

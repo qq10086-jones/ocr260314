@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic
+PyYAML
+opencv-python
+numpy
+Pillow
+rapidocr_onnxruntime
+deep-translator

@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+
+runs/*
+!runs/.gitkeep
+
+tmp/
+.venv/
+.venv39/
+
+.DS_Store
