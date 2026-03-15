@@ -15,6 +15,7 @@ translator:
 inpaint:
   provider: opencv
   expand_pixels: 8
+  mask_version: v4
 
 comfyui:
   server: "127.0.0.1:8188"

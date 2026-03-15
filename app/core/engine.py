@@ -253,14 +253,18 @@ class ImageTranslationEngine:
             return self._hq_inpainter
         return self._fast_inpainter
 
-from app.mask.refiner import MaskRefiner
-
-...
-
     def _build_mask(self, image, ocr_boxes: list[OCRBox]):
-        # 默认使用新的 MaskRefiner 进行精细分割
-        refiner = MaskRefiner(expand_pixels=self._config.inpaint.expand_pixels // 2)
-        return refiner.refine_mask(image, ocr_boxes)
+        # 根据配置选择 Mask 生成算法版本
+        version = getattr(self._config.inpaint, "mask_version", "v3")
+        
+        if version == "v4":
+            from app.mask.refiner_v4 import MaskRefinerV4
+            refiner = MaskRefinerV4(iterations=5)
+            return refiner.refine_mask(image, ocr_boxes)
+        else:
+            from app.mask.refiner import MaskRefiner
+            refiner = MaskRefiner(expand_pixels=self._config.inpaint.expand_pixels // 2)
+            return refiner.refine_mask(image, ocr_boxes)
 
     def _render(self, image, tasks: list[TranslationTask]):
         if self._renderer is None:
