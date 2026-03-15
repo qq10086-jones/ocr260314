@@ -19,7 +19,7 @@
   },
   "7": {
     "inputs": {
-      "seed": 768108983502815,
+      "seed": 548364100785238,
       "inpaint_model": [
         "5",
         0
@@ -109,8 +109,8 @@
   },
   "13": {
     "inputs": {
-      "image": "clipspace/clipspace-painted-masked-1766493256598.png [input]",
-      "channel": "alpha"
+      "image": "mask.png",
+      "channel": "red"
     },
     "class_type": "LoadImageMask",
     "_meta": {
@@ -119,7 +119,7 @@
   },
   "15": {
     "inputs": {
-      "dilation": -10,
+      "dilation": 14,
       "mask": [
         "13",
         0
@@ -135,7 +135,7 @@
       "offset": 0.6,
       "threshold": 0.8,
       "mask": [
-        "15",
+        "19",
         0
       ]
     },
@@ -148,7 +148,7 @@
     "inputs": {
       "value": 1,
       "width": 512,
-      "height": 512
+      "height": 398
     },
     "class_type": "SolidMask",
     "_meta": {
@@ -163,6 +163,20 @@
     "class_type": "LoadImageMask",
     "_meta": {
       "title": "Load Image (as Mask)"
+    }
+  },
+  "19": {
+    "inputs": {
+      "amount": 9,
+      "device": "auto",
+      "mask": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "MaskBlur+",
+    "_meta": {
+      "title": "🔧 Mask Blur"
     }
   }
 }

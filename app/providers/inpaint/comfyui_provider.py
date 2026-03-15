@@ -2,9 +2,7 @@ from __future__ import annotations
 
 import json
 import random
-import urllib.error
-import urllib.request
-import mimetypes
+import requests
 from datetime import datetime, timedelta
 from pathlib import Path
 import time
@@ -21,12 +19,14 @@ class ComfyUIInpainter:
     def __init__(self, config: ComfyUIConfig, state: ComfyUIRuntimeState | None = None) -> None:
         self._config = config
         self._state = state or ComfyUIRuntimeState()
+        self.base_url = f"http://{self._config.server}"
 
     def inpaint(self, image: np.ndarray, mask: np.ndarray) -> np.ndarray:
+        print(f"\n[ComfyUI] >>> 启动高质量擦除流程 <<<")
         try:
             return self._inpaint_impl(image, mask)
         except Exception as e:
-            print(f"[严重错误] ComfyUI 调用失败: {e}")
+            print(f"[ComfyUI] ❌ 流程中断: {e}")
             import traceback
             traceback.print_exc()
             return image
@@ -34,98 +34,84 @@ class ComfyUIInpainter:
     def _inpaint_impl(self, image: np.ndarray, mask: np.ndarray) -> np.ndarray:
         height, width = image.shape[:2]
 
-        # 1. 编码图片为内存数据 (PNG 格式)
+        # 1. 编码
         _, img_encoded = cv2.imencode(".png", image)
-        _, msk_encoded = cv2.imencode(".png", mask)
+        
+        # 处理 Mask 为 RGBA 适配 LoadImageMask
+        mask_rgba = np.zeros((height, width, 4), dtype=np.uint8)
+        mask_rgba[:, :, 0:3] = 0 
+        mask_rgba[:, :, 3] = mask # Alpha 通道
+        _, msk_encoded = cv2.imencode(".png", mask_rgba)
 
         random_id = random.randint(1000, 9999)
-        image_name = f"api_upload_{random_id}.png"
-        mask_name = f"api_mask_{random_id}.png"
+        img_name = f"api_img_{random_id}.png"
+        msk_name = f"api_msk_{random_id}.png"
 
-        # 2. 通过 API 接口上传图片到 ComfyUI (最稳的方法)
-        print(f"[Debug] 正在通过 API 上传原图: {image_name}")
-        self._upload_image(image_name, img_encoded.tobytes())
-        print(f"[Debug] 正在通过 API 上传遮罩: {mask_name}")
-        self._upload_image(mask_name, msk_encoded.tobytes())
+        # 2. 上传
+        print(f"[ComfyUI] 正在上传图片...")
+        self._upload(img_name, img_encoded.tobytes())
+        self._upload(msk_name, msk_encoded.tobytes())
 
-        # 3. 加载并修改工作流
+        # 3. 构造 Workflow
         workflow_path = Path(self._config.workflow_file)
+        print(f"[ComfyUI] 加载工作流: {workflow_path.name}")
         with workflow_path.open("r", encoding="utf-8") as f:
             workflow = json.load(f)
 
-        if "1" in workflow:
-            workflow["1"]["inputs"]["image"] = image_name
-        if "8" in workflow:
-            workflow["8"]["inputs"]["image"] = mask_name
+        # 映射 ID (1 和 13)
+        if "1" in workflow: workflow["1"]["inputs"]["image"] = img_name
+        if "13" in workflow: workflow["13"]["inputs"]["image"] = msk_name
 
         # 4. 提交任务
-        print(f"[Debug] 正在提交任务到 ComfyUI 队列...")
-        prompt_response = self._queue_prompt(workflow)
-        prompt_id = prompt_response["prompt_id"]
-        print(f"[Debug] 任务已入队，ID: {prompt_id}，显卡已开始轰鸣...")
+        print(f"[ComfyUI] 正在提交 Queue Prompt...")
+        res = requests.post(f"{self.base_url}/prompt", json={"prompt": workflow, "client_id": str(uuid4())})
+        res.raise_for_status()
+        prompt_id = res.json()["prompt_id"]
+        print(f"[ComfyUI] 任务已入队 ID: {prompt_id} (显卡应开始工作)")
 
-        # 5. 等待并获取结果
+        # 5. 等待
         result_data = self._wait_for_images(prompt_id)
-        outputs = result_data.get("outputs", {})
         
+        # 6. 获取结果
+        outputs = result_data.get("outputs", {})
         for node_id, output in outputs.items():
             if "images" in output:
                 for img_info in output["images"]:
                     file_name = img_info["filename"]
-                    print(f"[Debug] 识别到输出结果: {file_name}，正在拉取图片...")
-                    raw_data = self._get_image_data(file_name, img_info.get("subfolder", ""), img_info.get("type", "output"))
+                    print(f"[ComfyUI] 正在拉取结果图: {file_name}")
+                    img_res = requests.get(f"{self.base_url}/view", params={
+                        "filename": file_name,
+                        "subfolder": img_info.get("subfolder", ""),
+                        "type": img_info.get("type", "output")
+                    })
+                    img_res.raise_for_status()
                     
-                    nparr = np.frombuffer(raw_data, np.uint8)
+                    nparr = np.frombuffer(img_res.content, np.uint8)
                     decoded = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
                     if decoded is not None:
                         if decoded.shape[:2] != (height, width):
                             decoded = cv2.resize(decoded, (width, height))
-                        print(f"[Debug] 恭喜！高质量擦除已完成。")
+                        print(f"[ComfyUI] ✅ 擦除成功。")
                         return decoded
 
-        print("[警告] ComfyUI 虽然跑完了，但没吐出图片。")
+        print("[ComfyUI] ⚠️ 任务完成但未找到结果图。")
         return image
 
-    def _upload_image(self, filename: str, image_bytes: bytes):
-        """使用 multipart/form-data 格式上传图片到 ComfyUI"""
-        boundary = f"----WebKitFormBoundary{uuid4().hex}"
-        body = (
-            f"--{boundary}\r\n"
-            f'Content-Disposition: form-data; name="image"; filename="{filename}"\r\n'
-            f"Content-Type: image/png\r\n\r\n"
-        ).encode("utf-8") + image_bytes + f"\r\n--{boundary}--\r\n".encode("utf-8")
-
-        request = urllib.request.Request(f"http://{self._config.server}/upload/image", data=body)
-        request.add_header("Content-Type", f"multipart/form-data; boundary={boundary}")
-        
-        with urllib.request.urlopen(request) as response:
-            return json.loads(response.read())
-
-    def _queue_prompt(self, workflow: dict) -> dict:
-        payload = {"prompt": workflow, "client_id": str(uuid4())}
-        data = json.dumps(payload).encode("utf-8")
-        request = urllib.request.Request(f"http://{self._config.server}/prompt", data=data)
-        with urllib.request.urlopen(request) as response:
-            return json.loads(response.read())
-
-    def _get_history(self, prompt_id: str) -> dict:
-        url = f"http://{self._config.server}/history/{prompt_id}"
-        with urllib.request.urlopen(url) as response:
-            return json.loads(response.read())
+    def _upload(self, name: str, data: bytes):
+        files = {"image": (name, data, "image/png")}
+        res = requests.post(f"{self.base_url}/upload/image", files=files)
+        res.raise_for_status()
 
     def _wait_for_images(self, prompt_id: str) -> dict:
-        started_at = datetime.now()
-        while (datetime.now() - started_at).total_seconds() < 300: # 5分钟超时
-            history = self._get_history(prompt_id)
+        start = time.time()
+        while time.time() - start < 300:
+            res = requests.get(f"{self.base_url}/history/{prompt_id}")
+            res.raise_for_status()
+            history = res.json()
             if prompt_id in history:
                 return history[prompt_id]
             time.sleep(1)
-        raise TimeoutError("ComfyUI 执行超时")
-
-    def _get_image_data(self, filename: str, subfolder: str, folder_type: str) -> bytes:
-        url = f"http://{self._config.server}/view?filename={filename}&subfolder={subfolder}&type={folder_type}"
-        with urllib.request.urlopen(url) as response:
-            return response.read()
+        raise TimeoutError("ComfyUI 超时")
 
     @property
     def is_degraded(self) -> bool:

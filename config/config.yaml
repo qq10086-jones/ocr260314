@@ -18,8 +18,8 @@ inpaint:
 
 comfyui:
   server: "127.0.0.1:8188"
-  root_dir: D:/comfyui2_comfyui
-  workflow_file: E:/0_zhuzhu/photo_editor/ocr260314/workflow_layerstyle_251221_api.json
+  root_dir: D:/comfyui2/ComfyUI
+  workflow_file: E:/0_zhuzhu/photo_editor/ocr260314/workflow_layerstyle_260315_api.json
   request_timeout_seconds: 120
   max_consecutive_failures: 3
   degradation_cooldown_seconds: 300

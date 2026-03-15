@@ -67,6 +67,15 @@ class ImageTranslationEngine:
             timings.translate_seconds = round(time.perf_counter() - stage_started_at, 3)
 
             mask = self._build_mask(image, ocr_boxes)
+            
+            # P2: 生成质量调试图 (Overlay)
+            from app.qa.evaluator import QAEvaluator
+            qa = QAEvaluator()
+            overlay = qa.generate_debug_overlay(image, mask)
+            qa_stats = qa.calculate_mask_stats(mask)
+            # 明确保存到任务文件夹
+            save_image(job_paths.job_dir / "debug_overlay.png", overlay)
+            print(f"[Debug] 已保存 QA 调试图到: {job_paths.job_dir / 'debug_overlay.png'}")
 
             stage_started_at = time.perf_counter()
             cleaned_background = self._select_inpainter(request.mode).inpaint(image, mask)
@@ -90,6 +99,7 @@ class ImageTranslationEngine:
                 output_path,
                 timings,
                 warnings=warnings,
+                qa_stats=qa_stats
             )
             append_log(job_paths.log_path, f"result_saved={output_path}")
 
@@ -243,10 +253,14 @@ class ImageTranslationEngine:
             return self._hq_inpainter
         return self._fast_inpainter
 
+from app.mask.refiner import MaskRefiner
+
+...
+
     def _build_mask(self, image, ocr_boxes: list[OCRBox]):
-        if isinstance(self._fast_inpainter, OpenCVInpainter):
-            return self._fast_inpainter.build_mask(image, ocr_boxes)
-        raise RuntimeError("当前 fast inpainter 不支持构建 mask")
+        # 默认使用新的 MaskRefiner 进行精细分割
+        refiner = MaskRefiner(expand_pixels=self._config.inpaint.expand_pixels // 2)
+        return refiner.refine_mask(image, ocr_boxes)
 
     def _render(self, image, tasks: list[TranslationTask]):
         if self._renderer is None:
@@ -261,6 +275,7 @@ class ImageTranslationEngine:
         result_image_path: Path,
         timings: StageTiming,
         warnings: list[str],
+        qa_stats: dict | None = None,
     ) -> None:
         payload = {
             "status": "success",
@@ -268,6 +283,7 @@ class ImageTranslationEngine:
             "input_path": str(request.image_path),
             "output_path": str(result_image_path),
             "warnings": warnings,
+            "qa_stats": qa_stats or {},
             "timings": {
                 "load_image_seconds": timings.load_image_seconds,
                 "ocr_seconds": timings.ocr_seconds,
