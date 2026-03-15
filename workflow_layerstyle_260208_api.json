@@ -1,0 +1,168 @@
+{
+  "1": {
+    "inputs": {
+      "image": "test.jpg"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "5": {
+    "inputs": {
+      "model_name": "big-lama.pt"
+    },
+    "class_type": "INPAINT_LoadInpaintModel",
+    "_meta": {
+      "title": "Load Inpaint Model"
+    }
+  },
+  "7": {
+    "inputs": {
+      "seed": 768108983502815,
+      "inpaint_model": [
+        "5",
+        0
+      ],
+      "image": [
+        "11",
+        0
+      ],
+      "mask": [
+        "10",
+        1
+      ]
+    },
+    "class_type": "INPAINT_InpaintWithModel",
+    "_meta": {
+      "title": "Inpaint (using Model)"
+    }
+  },
+  "9": {
+    "inputs": {
+      "invert_mask": false,
+      "shrink_level": 0,
+      "soft": 3,
+      "edge_shrink": 1,
+      "edge_reserve": 17,
+      "mask": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "LayerMask: MaskEdgeShrink",
+    "_meta": {
+      "title": "LayerMask: MaskEdgeShrink"
+    }
+  },
+  "10": {
+    "inputs": {
+      "method": "VITMatte",
+      "mask_grow": 12,
+      "fix_gap": 0,
+      "fix_threshold": 0.95,
+      "edge_erode": 2,
+      "edte_dilate": 13,
+      "black_point": 0.13,
+      "white_point": 0.73,
+      "device": "cuda",
+      "max_megapixels": 2,
+      "image": [
+        "1",
+        0
+      ],
+      "mask": [
+        "9",
+        0
+      ]
+    },
+    "class_type": "LayerMask: MaskEdgeUltraDetail V2",
+    "_meta": {
+      "title": "LayerMask: MaskEdgeUltraDetail V2"
+    }
+  },
+  "11": {
+    "inputs": {
+      "fill_background": false,
+      "background_color": "#000000",
+      "RGBA_image": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: ImageRemoveAlpha",
+    "_meta": {
+      "title": "LayerUtility: ImageRemoveAlpha"
+    }
+  },
+  "12": {
+    "inputs": {
+      "images": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "13": {
+    "inputs": {
+      "image": "clipspace/clipspace-painted-masked-1766493256598.png [input]",
+      "channel": "alpha"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "15": {
+    "inputs": {
+      "dilation": -10,
+      "mask": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "ImpactDilateMask",
+    "_meta": {
+      "title": "Dilate Mask"
+    }
+  },
+  "16": {
+    "inputs": {
+      "offset": 0.6,
+      "threshold": 0.8,
+      "mask": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "INPAINT_DenoiseToCompositingMask",
+    "_meta": {
+      "title": "Denoise to Compositing Mask"
+    }
+  },
+  "17": {
+    "inputs": {
+      "value": 1,
+      "width": 512,
+      "height": 512
+    },
+    "class_type": "SolidMask",
+    "_meta": {
+      "title": "SolidMask"
+    }
+  },
+  "18": {
+    "inputs": {
+      "image": "clipspace/clipspace-painted-masked-1766494417233.png [input]",
+      "channel": "alpha"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  }
+}

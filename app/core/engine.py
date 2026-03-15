@@ -239,8 +239,6 @@ class ImageTranslationEngine:
             raise InputFileError(str(exc)) from exc
 
     def _select_inpainter(self, mode: str) -> InpainterProvider:
-        if mode == "hq" and isinstance(self._hq_inpainter, ComfyUIInpainter) and self._hq_inpainter.is_degraded:
-            return self._fast_inpainter
         if mode == "hq" and self._hq_inpainter is not None:
             return self._hq_inpainter
         return self._fast_inpainter
