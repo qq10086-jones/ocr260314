@@ -58,8 +58,8 @@ class AppConfig:
     ocr: OCRConfig
     translator: TranslatorConfig
     inpaint: InpaintConfig
-    comfyui: ComfyUIConfig
     render: RenderConfig
+    comfyui: ComfyUIConfig | None = None  # Optional — not required for default execution
 
 
 DEFAULT_CONFIG_PATH = PROJECT_ROOT / "config" / "config.yaml"
@@ -75,8 +75,8 @@ def load_config(config_path: str | Path | None = None) -> AppConfig:
         ocr=OCRConfig(**raw["ocr"]),
         translator=TranslatorConfig(**raw["translator"]),
         inpaint=InpaintConfig(**raw["inpaint"]),
-        comfyui=_build_comfyui_config(raw["comfyui"]),
         render=_build_render_config(raw["render"]),
+        comfyui=_build_comfyui_config(raw["comfyui"]) if "comfyui" in raw else None,
     )
 
 

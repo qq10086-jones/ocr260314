@@ -4,8 +4,6 @@ from functools import lru_cache
 
 from app.core.config import AppConfig, load_config
 from app.core.engine import ImageTranslationEngine
-from app.core.runtime_state import ComfyUIRuntimeState
-from app.providers.inpaint.comfyui_provider import ComfyUIInpainter
 from app.providers.inpaint.opencv_provider import OpenCVInpainter
 from app.providers.ocr.rapidocr_provider import RapidOCROCRProvider
 from app.providers.translator.local_provider import GoogleTranslatorProvider
@@ -18,11 +16,6 @@ from app.services.lock_service import ProcessLockService
 @lru_cache
 def get_config() -> AppConfig:
     return load_config()
-
-
-@lru_cache
-def get_comfyui_state() -> ComfyUIRuntimeState:
-    return ComfyUIRuntimeState()
 
 
 @lru_cache
@@ -43,12 +36,6 @@ def get_fast_inpainter() -> OpenCVInpainter:
 
 
 @lru_cache
-def get_hq_inpainter() -> ComfyUIInpainter:
-    config = get_config()
-    return ComfyUIInpainter(config.comfyui, state=get_comfyui_state())
-
-
-@lru_cache
 def get_renderer() -> TextRenderer:
     config = get_config()
     return TextRenderer(str(config.render.font_path))
@@ -62,7 +49,7 @@ def get_engine() -> ImageTranslationEngine:
         ocr_provider=get_ocr_provider(),
         translator_provider=get_translator_provider(),
         fast_inpainter=get_fast_inpainter(),
-        hq_inpainter=get_hq_inpainter(),
+        hq_inpainter=None,
         renderer=get_renderer(),
         lock_service=ProcessLockService(),
         job_service=JobService(config),

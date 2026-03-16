@@ -8,7 +8,6 @@ from app.core.config import AppConfig
 from app.core.errors import InputFileError
 from app.core.models import DebugArtifacts, OCRBox, ProcessRequest, ProcessResult, StageTiming, TranslationTask
 from app.providers.inpaint.base import InpainterProvider
-from app.providers.inpaint.comfyui_provider import ComfyUIInpainter
 from app.providers.inpaint.opencv_provider import OpenCVInpainter
 from app.providers.ocr.base import OCRProvider
 from app.providers.translator.base import TranslatorProvider
@@ -236,8 +235,8 @@ class ImageTranslationEngine:
         warnings: list[str] = []
         if request.mode == "hq" and self._hq_inpainter is None:
             warnings.append("HQ inpainter 未配置，当前自动回退 fast 模式")
-        if isinstance(self._hq_inpainter, ComfyUIInpainter) and self._hq_inpainter.is_degraded:
-            warnings.append("ComfyUI 当前处于降级状态，HQ 请求已回退到 OpenCV")
+        if self._hq_inpainter is not None and getattr(self._hq_inpainter, "is_degraded", False):
+            warnings.append("HQ inpainter 当前处于降级状态，HQ 请求已回退到 fast 模式")
         if self._renderer is None:
             warnings.append("Renderer 尚未接入，结果输出当前为擦字背景")
         return warnings

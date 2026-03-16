@@ -17,13 +17,17 @@ inpaint:
   expand_pixels: 8
   mask_version: v4
 
-comfyui:
-  server: "127.0.0.1:8188"
-  root_dir: D:/comfyui2/ComfyUI
-  workflow_file: E:/0_zhuzhu/photo_editor/ocr260314/workflow_layerstyle_260315_api.json
-  request_timeout_seconds: 120
-  max_consecutive_failures: 3
-  degradation_cooldown_seconds: 300
+# comfyui section is optional. Remove or comment out this block entirely
+# to run the engine without any ComfyUI dependency.
+# Retained here for reference only — ComfyUI is no longer in the production path.
+#
+# comfyui:
+#   server: "127.0.0.1:8188"
+#   root_dir: D:/comfyui2/ComfyUI
+#   workflow_file: workflows/workflow_layerstyle_260315_api.json
+#   request_timeout_seconds: 120
+#   max_consecutive_failures: 3
+#   degradation_cooldown_seconds: 300
 
 render:
   font_path: C:\Windows\Fonts\msyh.ttc

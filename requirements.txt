@@ -7,3 +7,5 @@ numpy
 Pillow
 rapidocr_onnxruntime
 deep-translator
+pytest
+pytest-timeout
