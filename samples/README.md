@@ -1,0 +1,75 @@
+# M0-A 基准样本收集指南
+
+## 目标
+收集 30+ 张测试图片，覆盖 6 种类型，用于建立基准和后续算法对比。
+
+## 目录结构
+```
+samples/
+├── manifest.json              # 样本清单
+├── benchmark_report.json      # 基准测试报告（自动生成）
+├── flat_bg/                  # 纯色背景电商图
+├── gradient_bg/              # 渐变背景
+├── product_surface/          # 产品表面纹理
+├── portrait/                 # 人物/身体遮挡
+├── button_tag/               # 按钮/标签文字
+└── outline_shadow/           # 描边/阴影/发光文字
+```
+
+## 图片要求
+- 格式: jpg / png
+- 分辨率: 建议 800x800 ~ 1920x1920
+- 数量: 每类至少 5 张，总计 30+ 张
+
+## 图片分类标准
+
+### 1. flat_bg (纯色背景)
+- 背景为单一颜色（白、黑、彩色纯色）
+- 文字直接写在背景上
+- 示例: 证件照、简单海报
+
+### 2. gradient_bg (渐变背景)
+- 背景有颜色渐变（线性、径向）
+- 文字跨越渐变区域
+
+### 3. product_surface (产品表面)
+- 文字印在产品表面（包装盒、瓶子、金属表面）
+- 背景有纹理或反光
+- 示例: 电商商品图
+
+### 4. portrait (人物遮挡)
+- 文字区域有人体/脸部遮挡
+- 需要处理复杂前景
+
+### 5. button_tag (按钮/标签)
+- 文字在按钮、标签、徽章上
+- 背景与文字对比度低或特殊形状
+
+### 6. outline_shadow (描边/阴影/发光)
+- 文字有描边效果
+- 文字有阴影（投影）
+- 文字有发光/光晕效果
+
+## 添加样本步骤
+
+1. 从阿里巴巴等电商网站下载图片
+2. 按分类放入对应目录
+3. 更新 `manifest.json`（可选）
+4. 运行基准测试:
+   ```bash
+   python scripts/benchmark_samples.py
+   ```
+
+## 运行基准测试
+
+确保服务已启动:
+```bash
+python -m uvicorn app.api.main:app --host 127.0.0.1 --port 8000
+```
+
+运行测试:
+```bash
+python scripts/benchmark_samples.py
+```
+
+报告生成在 `samples/benchmark_report.json`

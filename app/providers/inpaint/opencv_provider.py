@@ -4,6 +4,7 @@ import cv2
 import numpy as np
 
 from app.core.models import OCRBox
+from app.providers.inpaint.base import InpaintResult
 
 
 class OpenCVInpainter:
@@ -24,5 +25,6 @@ class OpenCVInpainter:
             mask = cv2.dilate(mask, kernel, iterations=1)
         return mask
 
-    def inpaint(self, image: np.ndarray, mask: np.ndarray) -> np.ndarray:
-        return cv2.inpaint(image, mask, self._radius, cv2.INPAINT_TELEA)
+    def inpaint(self, image: np.ndarray, mask: np.ndarray, context: dict | None = None) -> InpaintResult:
+        result = cv2.inpaint(image, mask, self._radius, cv2.INPAINT_TELEA)
+        return InpaintResult(image=result, method="opencv_telea")

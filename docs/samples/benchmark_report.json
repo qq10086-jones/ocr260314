@@ -1,0 +1,580 @@
+{
+  "generated": "2026-03-17 18:37:46",
+  "mode": "smart",
+  "total": 30,
+  "success": 30,
+  "failed": 0,
+  "success_rate": "100.0%",
+  "results": [
+    {
+      "status": "success",
+      "elapsed_seconds": 12.94,
+      "text_count": 13,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_b3d346cae101\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.052,
+        "ocr_seconds": 8.153,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.48,
+        "render_seconds": 0.0,
+        "export_seconds": 0.325
+      },
+      "category": "flat_bg",
+      "filename": "flat_bg_003.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 1.83,
+      "text_count": 1,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_731cff335651\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.011,
+        "ocr_seconds": 0.713,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.08,
+        "render_seconds": 0.0,
+        "export_seconds": 0.216
+      },
+      "category": "flat_bg",
+      "filename": "flat_bg_004.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 5.74,
+      "text_count": 24,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_b3d6086ae4dc\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.014,
+        "ocr_seconds": 4.522,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.099,
+        "render_seconds": 0.0,
+        "export_seconds": 0.15
+      },
+      "category": "flat_bg",
+      "filename": "flat_bg_005.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 4.47,
+      "text_count": 13,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_972d98b58d0c\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.009,
+        "ocr_seconds": 2.942,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.133,
+        "render_seconds": 0.0,
+        "export_seconds": 0.114
+      },
+      "category": "flat_bg",
+      "filename": "test_1.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 2.51,
+      "text_count": 2,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_f4d5c4d9d812\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.008,
+        "ocr_seconds": 1.987,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.053,
+        "render_seconds": 0.0,
+        "export_seconds": 0.04
+      },
+      "category": "flat_bg",
+      "filename": "test_ocr.png"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 4.48,
+      "text_count": 7,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_f2f54158b810\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.009,
+        "ocr_seconds": 3.245,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.046,
+        "render_seconds": 0.0,
+        "export_seconds": 0.108
+      },
+      "category": "gradient_bg",
+      "filename": "gradient_bg_002.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 2.84,
+      "text_count": 0,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_1ee6aac901b4\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.085,
+        "ocr_seconds": 1.754,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.292,
+        "render_seconds": 0.0,
+        "export_seconds": 0.517
+      },
+      "category": "gradient_bg",
+      "filename": "gradient_bg_003.png"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 1.64,
+      "text_count": 0,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_dd3bfa7ef1c6\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.047,
+        "ocr_seconds": 0.939,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.169,
+        "render_seconds": 0.0,
+        "export_seconds": 0.352
+      },
+      "category": "gradient_bg",
+      "filename": "gradient_bg_004.png"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 2.55,
+      "text_count": 0,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_ab951b4c6f18\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.022,
+        "ocr_seconds": 0.68,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 1.587,
+        "render_seconds": 0.0,
+        "export_seconds": 0.176
+      },
+      "category": "gradient_bg",
+      "filename": "gradient_bg_005.png"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 7.2,
+      "text_count": 10,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_199e0bff6fb1\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.106,
+        "ocr_seconds": 4.852,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.265,
+        "render_seconds": 0.0,
+        "export_seconds": 0.351
+      },
+      "category": "gradient_bg",
+      "filename": "test_3.png"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 7.19,
+      "text_count": 14,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_0a219a02f94a\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.052,
+        "ocr_seconds": 3.966,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.126,
+        "render_seconds": 0.0,
+        "export_seconds": 0.259
+      },
+      "category": "product_surface",
+      "filename": "product_surface_003.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 5.81,
+      "text_count": 9,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_c2a6d96c40ef\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.051,
+        "ocr_seconds": 3.186,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.252,
+        "render_seconds": 0.0,
+        "export_seconds": 0.099
+      },
+      "category": "product_surface",
+      "filename": "product_surface_004.png"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 11.48,
+      "text_count": 22,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_c8720b7f74a0\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.029,
+        "ocr_seconds": 5.1,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.329,
+        "render_seconds": 0.0,
+        "export_seconds": 0.113
+      },
+      "category": "product_surface",
+      "filename": "product_surface_005.png"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 5.03,
+      "text_count": 11,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_f3152efc04dd\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.035,
+        "ocr_seconds": 3.209,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.144,
+        "render_seconds": 0.0,
+        "export_seconds": 0.188
+      },
+      "category": "product_surface",
+      "filename": "test_2.png"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 11.16,
+      "text_count": 43,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_7d7e0b86596c\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.053,
+        "ocr_seconds": 6.774,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.294,
+        "render_seconds": 0.0,
+        "export_seconds": 0.345
+      },
+      "category": "product_surface",
+      "filename": "test_4.png"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 2.48,
+      "text_count": 1,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_dc3ca96bebea\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.007,
+        "ocr_seconds": 1.518,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.075,
+        "render_seconds": 0.0,
+        "export_seconds": 0.109
+      },
+      "category": "portrait",
+      "filename": "portrait_001.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 1.66,
+      "text_count": 1,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_9805090c96d7\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.008,
+        "ocr_seconds": 0.625,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.08,
+        "render_seconds": 0.0,
+        "export_seconds": 0.634
+      },
+      "category": "portrait",
+      "filename": "portrait_002.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 4.95,
+      "text_count": 4,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_223dcc8e4111\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.026,
+        "ocr_seconds": 3.992,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.275,
+        "render_seconds": 0.0,
+        "export_seconds": 0.155
+      },
+      "category": "portrait",
+      "filename": "portrait_003.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 2.83,
+      "text_count": 7,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_803d5d7941c6\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.002,
+        "ocr_seconds": 2.489,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.024,
+        "render_seconds": 0.0,
+        "export_seconds": 0.044
+      },
+      "category": "portrait",
+      "filename": "portrait_004.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 1.69,
+      "text_count": 0,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_f27ac8064416\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.012,
+        "ocr_seconds": 1.073,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.07,
+        "render_seconds": 0.0,
+        "export_seconds": 0.393
+      },
+      "category": "portrait",
+      "filename": "portrait_005.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 12.05,
+      "text_count": 6,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_8afae30297be\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.011,
+        "ocr_seconds": 2.773,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.203,
+        "render_seconds": 0.0,
+        "export_seconds": 0.183
+      },
+      "category": "button_tag",
+      "filename": "button_tag_001.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 4.04,
+      "text_count": 13,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_39fc60a61ed7\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.008,
+        "ocr_seconds": 3.667,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.027,
+        "render_seconds": 0.0,
+        "export_seconds": 0.062
+      },
+      "category": "button_tag",
+      "filename": "button_tag_002.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 7.49,
+      "text_count": 23,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_d4e7f2b53431\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.016,
+        "ocr_seconds": 4.074,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.179,
+        "render_seconds": 0.0,
+        "export_seconds": 0.117
+      },
+      "category": "button_tag",
+      "filename": "button_tag_003.png"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 3.04,
+      "text_count": 7,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_355f4ed07bbf\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.013,
+        "ocr_seconds": 2.279,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.107,
+        "render_seconds": 0.0,
+        "export_seconds": 0.069
+      },
+      "category": "button_tag",
+      "filename": "button_tag_004.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 18.61,
+      "text_count": 47,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_1c7df799e3f3\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.091,
+        "ocr_seconds": 9.822,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.605,
+        "render_seconds": 0.0,
+        "export_seconds": 0.504
+      },
+      "category": "button_tag",
+      "filename": "button_tag_005.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 4.77,
+      "text_count": 3,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_b6f7821dd2fa\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.003,
+        "ocr_seconds": 3.913,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.026,
+        "render_seconds": 0.0,
+        "export_seconds": 0.037
+      },
+      "category": "outline_shadow",
+      "filename": "outline_shadow_001.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 9.98,
+      "text_count": 43,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_4d475e9f06f7\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.07,
+        "ocr_seconds": 7.34,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.16,
+        "render_seconds": 0.0,
+        "export_seconds": 0.086
+      },
+      "category": "outline_shadow",
+      "filename": "outline_shadow_002.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 4.86,
+      "text_count": 19,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_ac798f913f19\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.009,
+        "ocr_seconds": 4.079,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.053,
+        "render_seconds": 0.0,
+        "export_seconds": 0.03
+      },
+      "category": "outline_shadow",
+      "filename": "outline_shadow_003.png"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 3.53,
+      "text_count": 7,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_dad0170b5254\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.007,
+        "ocr_seconds": 2.692,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.042,
+        "render_seconds": 0.0,
+        "export_seconds": 0.052
+      },
+      "category": "outline_shadow",
+      "filename": "outline_shadow_004.jpg"
+    },
+    {
+      "status": "success",
+      "elapsed_seconds": 6.77,
+      "text_count": 18,
+      "output_path": "C:\\Users\\linweiye\\ocr260314\\runs\\2026-03-17\\job_ed9043648dd2\\result.png",
+      "warnings": [
+        "Renderer 尚未接入，结果输出当前为擦字背景"
+      ],
+      "qa_stats": {
+        "load_image_seconds": 0.036,
+        "ocr_seconds": 4.386,
+        "translate_seconds": 0.0,
+        "inpaint_seconds": 0.115,
+        "render_seconds": 0.0,
+        "export_seconds": 0.109
+      },
+      "category": "outline_shadow",
+      "filename": "outline_shadow_005.jpg"
+    }
+  ]
+}

@@ -4,6 +4,9 @@ __pycache__/
 runs/*
 !runs/.gitkeep
 
+manual_runs/
+tests/.test_runtime/
+
 tmp/
 .venv/
 .venv39/

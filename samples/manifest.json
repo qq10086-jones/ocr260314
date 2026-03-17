@@ -1,0 +1,12 @@
+{
+  "samples": [
+    {
+      "filename": "xxx.jpg",
+      "category": "flat_bg|gradient_bg|product_surface|portrait|button_tag|outline_shadow",
+      "expected_text_count": 0,
+      "notes": "描述这张图片的特点"
+    }
+  ],
+  "created": "2026-03-16",
+  "total": 0
+}

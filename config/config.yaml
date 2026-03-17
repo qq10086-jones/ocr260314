@@ -15,7 +15,7 @@ translator:
 inpaint:
   provider: opencv
   expand_pixels: 8
-  mask_version: v4
+  mask_version: v5
 
 # comfyui section is optional. Remove or comment out this block entirely
 # to run the engine without any ComfyUI dependency.

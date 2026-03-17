@@ -1,0 +1,189 @@
+{
+  "samples": [
+    {
+      "filename": "flat_bg/flat_bg_003.jpg",
+      "category": "flat_bg",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "flat_bg/flat_bg_004.jpg",
+      "category": "flat_bg",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "flat_bg/flat_bg_005.jpg",
+      "category": "flat_bg",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "gradient_bg/gradient_bg_002.jpg",
+      "category": "gradient_bg",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "gradient_bg/gradient_bg_003.png",
+      "category": "gradient_bg",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "gradient_bg/gradient_bg_004.png",
+      "category": "gradient_bg",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "gradient_bg/gradient_bg_005.png",
+      "category": "gradient_bg",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "product_surface/product_surface_003.jpg",
+      "category": "product_surface",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "product_surface/product_surface_004.png",
+      "category": "product_surface",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "product_surface/product_surface_005.png",
+      "category": "product_surface",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "portrait/portrait_001.jpg",
+      "category": "portrait",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "portrait/portrait_002.jpg",
+      "category": "portrait",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "portrait/portrait_003.jpg",
+      "category": "portrait",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "portrait/portrait_004.jpg",
+      "category": "portrait",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "portrait/portrait_005.jpg",
+      "category": "portrait",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "button_tag/button_tag_001.jpg",
+      "category": "button_tag",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "button_tag/button_tag_002.jpg",
+      "category": "button_tag",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "button_tag/button_tag_003.png",
+      "category": "button_tag",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "button_tag/button_tag_004.jpg",
+      "category": "button_tag",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "button_tag/button_tag_005.jpg",
+      "category": "button_tag",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "outline_shadow/outline_shadow_001.jpg",
+      "category": "outline_shadow",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "outline_shadow/outline_shadow_002.jpg",
+      "category": "outline_shadow",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "outline_shadow/outline_shadow_003.png",
+      "category": "outline_shadow",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "outline_shadow/outline_shadow_004.jpg",
+      "category": "outline_shadow",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    },
+    {
+      "filename": "outline_shadow/outline_shadow_005.jpg",
+      "category": "outline_shadow",
+      "source": "bing",
+      "expected_text_count": -1,
+      "notes": ""
+    }
+  ],
+  "created": "2026-03-16",
+  "total": 25,
+  "categories": [
+    "flat_bg",
+    "gradient_bg",
+    "product_surface",
+    "portrait",
+    "button_tag",
+    "outline_shadow"
+  ]
+}

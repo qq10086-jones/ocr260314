@@ -33,7 +33,7 @@ class TranslatorConfig:
 class InpaintConfig:
     provider: str
     expand_pixels: int
-    mask_version: str = "v3"
+    mask_version: str = "v5"
 
 
 @dataclass(frozen=True)

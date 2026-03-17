@@ -8,7 +8,9 @@ This makes the fixture runnable on any machine without external services.
 """
 from __future__ import annotations
 
+from dataclasses import replace
 from pathlib import Path
+from uuid import uuid4
 
 import pytest
 
@@ -32,15 +34,23 @@ def app_config():
 @pytest.fixture
 def minimal_engine(app_config):
     """Engine with no external dependencies. Safe to run anywhere."""
+    base_dir = Path(__file__).parent / ".test_runtime" / uuid4().hex
+    runtime_config = replace(
+        app_config.runtime,
+        output_dir=base_dir / "runs",
+        temp_dir=base_dir / "tmp",
+    )
+    test_config = replace(app_config, runtime=runtime_config)
+
     return ImageTranslationEngine(
-        config=app_config,
+        config=test_config,
         ocr_provider=RapidOCROCRProvider(),
         translator_provider=NoOpTranslator(),
-        fast_inpainter=OpenCVInpainter(expand_pixels=app_config.inpaint.expand_pixels),
+        fast_inpainter=OpenCVInpainter(expand_pixels=test_config.inpaint.expand_pixels),
         hq_inpainter=None,
         renderer=None,
         lock_service=ProcessLockService(),
-        job_service=JobService(app_config),
+        job_service=JobService(test_config),
     )
 
 
